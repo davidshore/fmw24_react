@@ -3,6 +3,7 @@ import List from "./List";
 import InputWithLabel from "./InputWithLabel";
 import Button from "./Button";
 import ButtonWithChildren from "./ButtonWithChildren";
+import logo from "/vite.svg";
 
 // När man använder en komponent - kalla för att skapa en instans
 
@@ -49,14 +50,16 @@ function App() {
         onInputChange={handleChange}
       />
 
+      <img src={logo} />
+
       <hr />
 
       <List list={stories} />
 
-      <Button title="hej" size="small" />
-      <Button title="hello" size="large" />
+      <Button title="hej" size="small" imgSrc={logo} />
+      <Button title="hello" size="large" imgSrc={logo} />
 
-      <Button title="hello" size="medium" />
+      <Button title="hello" size="medium" imgSrc={logo} />
 
       <ButtonWithChildren>Skicka</ButtonWithChildren>
     </>

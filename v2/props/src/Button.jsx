@@ -5,12 +5,17 @@ const sizes = {
   small: "buttonSmall",
 };
 
-export default function Button({ size, title }) {
+export default function Button({ title, size, imgSrc }) {
   let sizeClassName = sizes[size];
 
   if (sizeClassName == null) {
     sizeClassName = "buttonLarge";
   }
 
-  return <button className={sizeClassName}>{title}</button>;
+  return (
+    <button className={sizeClassName}>
+      <img src={imgSrc} alt="logo" />
+      {title}
+    </button>
+  );
 }
