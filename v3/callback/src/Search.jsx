@@ -3,11 +3,11 @@ import { useState } from "react";
 export default function Search(props) {
   const { handleChange } = props;
 
-  // const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // function handleChange(e) {
-  //   setSearchTerm(e.target.value);
-  // }
+  function handleChange(e) {
+    setSearchTerm(e.target.value);
+  }
 
   return (
     <div>
@@ -15,9 +15,9 @@ export default function Search(props) {
       <label htmlFor="search">Search:</label>
       <input id="search" type="text" onChange={handleChange} />
 
-      {/* <p>
+      <p>
         Searching for <strong>{searchTerm}</strong>.
-      </p> */}
+      </p>
     </div>
   );
 }
