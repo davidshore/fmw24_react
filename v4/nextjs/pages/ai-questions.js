@@ -8,14 +8,27 @@ export default function AIQuestions() {
   const [history, setHistory] = useState([]);
 
   async function sendPrompt() {
-    const result = await model.generateContent(prompt);
-    const answerText = result.response.text();
-    setAnswer(answerText);
+    // const result = await model.generateContent(prompt);
+    // const answerText = result.response.text();
+    // setAnswer(answerText);
 
-    // Lägg till i history
-    const newHistory = [...history];
-    newHistory.push({ prompt, answer: answerText });
-    setHistory(newHistory);
+    // // Lägg till i history
+    // const newHistory = [...history];
+    // newHistory.push({ prompt, answer: answerText });
+    // setHistory(newHistory);
+
+    const response = await fetch("/api/questions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ prompt }),
+    });
+    const data = await response.json();
+
+    console.log("data", data);
+
+    setAnswer(data.answer);
   }
 
   // async function sendOnPageLoad(question) {
